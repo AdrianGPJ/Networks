@@ -32,7 +32,7 @@ public class ClientTCP : MonoBehaviour
     void Connect()
     {
         // TO DO 2: Create server endpoint
-        IPEndPoint ipep = new IPEndPoint(IPAddress.Parse("192.168.206.17"), 9050);
+        IPEndPoint ipep = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9050);
         server = new Socket(ipep.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
         try
