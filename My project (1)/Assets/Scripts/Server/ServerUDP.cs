@@ -15,6 +15,7 @@ public class ServerUDP : MonoBehaviour
 
     void Start()
     {
+        
         UItext = UItextObj.GetComponent<TextMeshProUGUI>();
     }
 
@@ -23,17 +24,21 @@ public class ServerUDP : MonoBehaviour
         serverText = "Starting UDP Server...";
 
         // TO DO 1: Create and bind the socket
+        
         IPEndPoint ipep = new IPEndPoint(IPAddress.Any, 9050);
+        
         socket = new Socket(ipep.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
         socket.Bind(ipep);
         serverText += "\nUDP Server started, waiting for clients...";
 
+        
         Thread newConnection = new Thread(Receive);
         newConnection.Start();
     }
 
     void Update()
     {
+       
         UItext.text = serverText;
     }
 
